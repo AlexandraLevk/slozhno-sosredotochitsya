@@ -1,5 +1,177 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
 
 .page {
+  background-image: var(--bg-image);
+  background-color: var(--bg-color);
+  background-size: cover;
+  background-position: top center;
+  background-attachment: fixed;
+  font-family: 'IBM Plex mono', 'Arial', sans-serif;
+  font-size: 18px;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
+}
+
+/* Шапка сайта */
+
+.header {
+  display: grid;
+  grid-template-rows: 1fr min-content 1fr;
+  height: 100vh;
+  align-items: center;
+  padding: var(--padding);
+  position: relative;
+}
+
+.decorated-zone::before {
+  content: '';
+  position: absolute;
+  inset-inline-start: 10px;
+  inset-block-end: 10px;
+  height: 25px;
+  width: 25px;
+  border-block-end: 1px solid var(--accent-color);
+  border-inline-start: 1px solid var(--accent-color);
+}
+
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 10px;
+  height: 25px;
+  width: 25px;
+  border-block-start: 1px solid var(--accent-color);
+  border-inline-end: 1px solid var(--accent-color);
+}
+
+.decorated-zone__element {
+  position: absolute;
+  inset-block-start: 10px;
+  inset-inline-end: 19px;
+}
+
+.decorated-zone__element::before {
+  content: 'REC';
+  position: relative;
+  inset-block-start: 2px;
+  inset-inline-end: 10px;
+  color: var(--accent-color);
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 138.889%;
+}
+
+.decorated-zone__element::after {
+  content: '';
+  display: inline-block;
+  inline-size: 9px;
+  block-size: 9px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+/*   filter: drop-shadow(0px 0px 4px #FF0070);*/
+box-shadow: 0px 0px 4px 3px var(--accent-color); 
+}
+
+
+
+/* Переключение тем*/
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-button_active {
+  pointer-events: none;
+}
+
+
+
+.heading {
+  color: #DB00FF;
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  font-weight: 700;
+  line-height: 82.5%; 
+}
+
+.header__title {
+  text-shadow: 4px 4px 0px var(--accent-color);
+}
+
+.description {
+  justify-self: end;
+}
+
+.title-decor {
+  color: var(--bg-color);
+  background-color: var(--accent-color);
+  font-size: inherit;
+  font-weight: 700;
+  line-height: 130%; 
+  max-width: 364px;
+}
+
+
+/* Секции */
+
+.main {
+  padding: var(--padding);  
+}
+
+.why {
+
+}
+
+.section__title {
+  font-size: inherit;
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+/* ЕСЛИ НЕ НУЖЕН - УДАЛИТЬ ИЗ ХТМЛ!!! 
+.content__title {} */
+
+.content__paragraph {
+  color: var(--text-color);
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 130%; 
+}
+
+
+
+
+
+
+/* Подвал сайта */
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: var(--padding);
+  position: relative;
+}
+
+
+.footer__title {
+  text-shadow: 2px 2px 0px var(--accent-color);
+}
+
+
+
+  /* медиавыражения для адаптива под разные экраны */
+
+
+@media (min-width: 768px) {
+  .block {
+      /* Новые стили при ширине окна просмотра >= 768px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .block {
+      /* Новые стили при ширине окна просмотра >= 1024px */
+  }
 }
