@@ -8,9 +8,11 @@
   --bg-image: url("../images/cover-image-light.png");
   --bg-color: #FFF1F7;
   --accent-color: #FF8DCB;
+  --button-color: #353430;
   --text-color: #353430;
   --accent-text-color: #353430;
 }
+
 
 .page.theme_light {
   /* сохраните этот селектор в приведённом виде.
@@ -20,18 +22,38 @@
   --bg-image: url("../images/cover-image-light.png");
   --bg-color: #FFF1F7;
   --accent-color: #FF8DCB;
+  --button-color: #353430;
   --text-color: #353430;
   --accent-text-color: #353430;
 }
 
 /* Остальные стили */
 
+.theme_light .decorated-zone__element {
+  visibility: hidden;
+}
+
+.theme_light .heading {
+  color: #FFC2E6;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     --bg-image: url("../images/cover-image-light.png");
     --bg-color: #FFF1F7;
     --accent-color: #FF8DCB;
+    --button-color: #353430;
     --text-color: #353430;
     --accent-text-color: #353430;
-    }
+  }
+
+  .decorated-zone__element {
+    visibility: hidden;
+  } 
+
+  .heading {
+    color: #FFC2E6;
+  }
 }
+
+
