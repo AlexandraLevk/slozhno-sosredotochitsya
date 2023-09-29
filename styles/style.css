@@ -25,29 +25,29 @@
 .decorated-zone::before {
   content: '';
   position: absolute;
-  inset-inline-start: 10px;
-  inset-block-end: 10px;
+  inset-inline-start: var(--padding);
+  inset-block-end: var(--padding);
   height: 25px;
   width: 25px;
-  border-block-end: 1px solid var(--button-color);
-  border-inline-start: 1px solid var(--button-color);
+  border-block-end: 1px solid var(--heading-color);
+  border-inline-start: 1px solid var(--heading-color);
 }
 
 .decorated-zone::after {
   content: '';
   position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 10px;
+  inset-block-start: var(--padding);
+  inset-inline-end: var(--padding);
   height: 25px;
   width: 25px;
-  border-block-start: 1px solid var(--button-color);
-  border-inline-end: 1px solid var(--button-color);
+  border-block-start: 1px solid var(--heading-color);
+  border-inline-end: 1px solid var(--heading-color);
 }
 
 .decorated-zone__element {
   position: absolute;
-  inset-block-start: 10px;
-  inset-inline-end: 29px;
+  inset-block-start: var(--padding);
+  inset-inline-end: calc(var(--padding) + 19px);
   color: var(--accent-color);
   font-family: inherit;
   font-size: inherit;
@@ -68,7 +68,6 @@
   box-shadow: 0px 0px 4px 3px var(--accent-color); 
 }
 
-
 /* Переключение тем*/
 
 .header__theme-menu {
@@ -82,7 +81,7 @@
 .header__theme-menu-button {
   display: block;
   cursor: pointer;
-  color: var(--button-color);
+  color: var(--heading-color);
   font-family: inherit;
   font-size: inherit;
   font-weight: 400;
@@ -96,11 +95,11 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  border: 1px solid var(--button-color);
+  border: 1px solid var(--heading-color);
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid var(--button-color);
+  border: 1px solid color-mix(in srgb, var(--heading-color) 40%, transparent);
 }
 
 .header__theme-menu-button:focus {
@@ -108,11 +107,10 @@
 }
 
 .header__theme-menu-button:focus-visible {
-  border-block-end: 1px solid var(--button-color); /* потом добавить прозрачность */
+  border-block-end: 1px solid var(--heading-color);
 }
 
 /* Заголовок страницы и описание */
-
 
 .heading {
   color: #DB00FF;
@@ -127,6 +125,7 @@
 
 .description {
   justify-self: end;
+  width: min(100%, 364px);
 }
 
 .title-decor {
@@ -138,11 +137,13 @@
   max-width: 100%;
 }
 
-
 /* Секции */
 
 .main {
-  padding: 40px var(--padding);  
+  display: flex;
+  flex-direction: column;
+  padding: clamp(40px, 10vi, 60px) var(--padding);  
+  gap: clamp(50px, 13vi, 80px);
 }
 
 .section-why {
@@ -150,14 +151,21 @@
   gap: 20px;
 }
 
+.section-what {
+  display: grid;
+  gap: 20px;
+}
+
+.section-how {
+  display: grid;
+  gap: 20px;
+}
+
 .section__title {
   font-size: inherit;
   font-weight: 700;
-  color: var(--accent-color);
+  color: var(--heading-color);
 }
-
-/* ЕСЛИ НЕ НУЖЕН - УДАЛИТЬ ИЗ ХТМЛ!!! 
-.content__title {} */
 
 .content__paragraph {
   color: var(--text-color);
@@ -169,35 +177,23 @@
 
 .content__paragraph-link {
   display: inline-block;
-  padding: 0 3px 4px 3px;
   border: 1px solid transparent;
+  padding: 0 0 4px 0;
+  line-height: 80%;
   text-decoration: none;
   text-shadow: 2px 2px 0px var(--accent-color);
-  line-height: 80%; 
 }
 
 .content__paragraph-link:hover {
   border-block-end: 1px solid var(--text-color);
-}
+} 
 
 .content__paragraph-link:focus {
   outline: none;
 }
 
 .content__paragraph-link:focus-visible {
-  border: 1px solid var(--text-color);
-}
-
-.section-what {
-  display: grid;
-  gap: 20px;
-  margin-block-start: 50px;
-}
-
-.section-how {
-  display: grid;
-  gap: 20px;
-  margin-block-start: 50px;
+  outline: 1px solid var(--text-color);
 }
 
 .paragraph__title {
@@ -212,23 +208,18 @@
 
 .section-gallery {
   display: grid;
-  gap: 10px;
-  margin-block-start: 50px;
+  gap: var(--padding);
 }
 
 .gallery {
   display: grid;
-  gap: 10px;
+  gap: var(--padding);
 }
 
 .gallery__image {
   width: 100%;
   object-fit: cover;
 }
-
-
-
-
 
 /* Подвал сайта */
 
@@ -241,24 +232,114 @@
   position: relative;
 }
 
-
 .footer__title {
   text-shadow: 2px 2px 0px var(--accent-color);
 }
 
+/* Адаптив под разные экраны */
 
+@media (width >= 768px) {
+  :root {
+    --padding: 20px;
+  }
 
-  /* медиавыражения для адаптива под разные экраны */
+  .heading {
+    color: #DB00FF;
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+    font-weight: 700;
+    line-height: 82.5%; 
+  }
 
+  .header__title {
+    position: relative;
+    inset-inline-end: var(--padding);
+  }
 
-@media (min-width: 768px) {
-  .block {
-      /* Новые стили при ширине окна просмотра >= 768px */
+  .description {
+    width: 50%;
+  }
+
+  .section-why {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .section-why__title {
+    grid-row: 1/3;
+  }
+
+  .section-what__title {
+    width: calc((100vi - 60px) / 3);
+  }
+
+  .section-how {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 25vi 29.9vi 41.4vi;
+  }
+
+  .gallery__image:first-child {
+    height: 100%;
+    grid-column: 1/3;
+  }
+
+  .gallery__image:nth-child(2) {
+    height: 100%;
+    grid-column: 3/4;
+    grid-row: 1/3;
+  }
+
+  .gallery__image:nth-child(3) {
+    height: 100%;
+    grid-column: 1/2;
+    grid-row: 2/4;
+  }
+
+  .gallery__image:nth-child(4) {
+    height: 100%;
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+
+  .gallery__image:nth-child(5) {
+    height: 100%;
+    grid-column: 2/4;
+    grid-row: 3/4;
   }
 }
 
-@media (min-width: 1024px) {
-  .block {
-      /* Новые стили при ширине окна просмотра >= 1024px */
+@media (width >= 1024px) {
+
+  .header__theme-menu {
+    align-self: start;
+    justify-self: center;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    gap: 10px;
+  }
+
+  .section-why {
+    grid-template-columns: calc((100% - 40px) / 3) calc(((100% - 40px) / 3) * 2 + 20px);
+  }
+
+  .section-what {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: min-content, min-content;
+  }
+
+  .section-what__title {
+    grid-column: 1/4;
+  }
+
+  .section-how {
+    grid-template-columns: calc((100% - 40px) / 3) calc(((100% - 40px) / 3) * 2 + 20px);
+  }
+
+  .gallery {
+    grid-template-rows: 25.4vi 30.7vi 42.3vi;
   }
 }
