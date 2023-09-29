@@ -133,7 +133,7 @@
   background-color: var(--accent-color);
   font-size: inherit;
   font-weight: 700;
-  line-height: 130%; 
+  line-height: 130%;
   max-width: 100%;
 }
 
@@ -142,7 +142,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding: clamp(40px, 10vi, 60px) var(--padding);  
+  padding: clamp(40px, 10vi, 60px) var(--padding);
   gap: clamp(50px, 13vi, 80px);
 }
 
@@ -171,7 +171,7 @@
   color: var(--text-color);
   font-size: inherit;
   font-weight: 400;
-  line-height: 130%; 
+  line-height: 130%;
   margin-block-start: 10px;
 }
 
@@ -201,7 +201,7 @@
   background-color: var(--accent-color);
   font-size: inherit;
   font-weight: 400;
-  line-height: 130%; 
+  line-height: 130%;
   max-width: 100%;
   margin-block-start: 20px;
 }
