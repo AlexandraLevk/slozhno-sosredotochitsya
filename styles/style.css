@@ -65,7 +65,7 @@
   block-size: 9px;
   border-radius: 50%;
   background-color: var(--accent-color);
-  box-shadow: 0px 0px 4px 3px var(--accent-color); 
+  box-shadow: 0px 0px 4px 3px var(--accent-color);
 }
 
 /* Переключение тем*/
@@ -116,7 +116,7 @@
   color: #DB00FF;
   font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   font-weight: 700;
-  line-height: 82.5%; 
+  line-height: 82.5%;
 }
 
 .header__title {
@@ -247,7 +247,7 @@
     color: #DB00FF;
     font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
     font-weight: 700;
-    line-height: 82.5%; 
+    line-height: 82.5%;
   }
 
   .header__title {
