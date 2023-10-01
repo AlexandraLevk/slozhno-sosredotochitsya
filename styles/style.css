@@ -6,7 +6,9 @@
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
-  font-family: var(--main-font, sans-serif);
+  /* Шоркат для background
+  background: fixed var(--bg-color) var(--bg-image) top center / cover; */
+  font-family: var(--main-font, Arial, sans-serif);
   font-size: 18px;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
@@ -66,7 +68,7 @@
   block-size: 9px;
   border-radius: 50%;
   background-color: var(--accent-color);
-  box-shadow: 0px 0px 4px 2px var(--accent-color);
+  box-shadow: 0 0 4px 2px var(--accent-color);
 }
 
 /* Переключение тем*/
@@ -88,10 +90,11 @@
   font-weight: 400;
   line-height: 100%;
   background-color: transparent;
-  padding: 1px 13px 5px 13px;
+  padding: 1px 13px 5px;
   text-align: center;
   border: 1px solid transparent;
   text-transform: lowercase;
+  transition: border 0.4s;
 }
 
 .header__theme-menu-button_active {
@@ -100,7 +103,7 @@
 }
 
 .header__theme-menu-button:hover {
-  border: 1px solid color-mix(in srgb, var(--heading-color) 40%, transparent);
+  border: 1px solid color-mix(in sRGB, var(--heading-color) 40%, transparent);
 }
 
 .header__theme-menu-button:focus {
@@ -121,7 +124,7 @@
 }
 
 .header__title {
-  text-shadow: 4px 4px 0px var(--accent-color);
+  text-shadow: 4px 4px 0 var(--accent-color);
 }
 
 .description {
@@ -179,15 +182,16 @@
 .content__paragraph-link {
   display: inline-block;
   border: 1px solid transparent;
-  padding: 0 0 4px 0;
+  padding: 0 0 4px;
   line-height: 80%;
   text-decoration: none;
-  text-shadow: 2px 2px 0px var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
+  transition: border 0.4s;
 }
 
 .content__paragraph-link:hover {
   border-block-end: 1px solid var(--text-color);
-} 
+}
 
 .content__paragraph-link:focus {
   outline: none;
@@ -234,12 +238,13 @@
 }
 
 .footer__title {
-  text-shadow: 2px 2px 0px var(--accent-color);
+  text-shadow: 2px 2px 0 var(--accent-color);
 }
 
 /* Адаптив под разные экраны */
 
 @media (width >= 768px) {
+
   :root {
     --padding: 20px;
   }
@@ -321,7 +326,9 @@
   }
 
   .section-why {
-    grid-template-columns: calc((100% - 40px) / 3) calc(((100% - 40px) / 3) * 2 + 20px);
+    grid-template-columns: calc((100% - 40px) / 3) calc(
+        ((100% - 40px) / 3) * 2 + 20px
+      );
   }
 
   .section-what {
@@ -334,7 +341,9 @@
   }
 
   .section-how {
-    grid-template-columns: calc((100% - 40px) / 3) calc(((100% - 40px) / 3) * 2 + 20px);
+    grid-template-columns: calc((100% - 40px) / 3) calc(
+        ((100% - 40px) / 3) * 2 + 20px
+      );
   }
 
   .gallery {
