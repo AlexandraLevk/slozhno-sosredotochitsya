@@ -12,5 +12,5 @@
   --text-color: #f1b2ce;
   --accent-text-color: #000028;
   --padding: clamp(10px, 2.6vi, 20px);
-  --main-font: ibm plex mono;
+  --main-font: 'IBM Plex mono';
 }

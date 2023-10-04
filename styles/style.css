@@ -8,7 +8,7 @@
   background-attachment: fixed;
   /* Шоркат для background
   background: fixed var(--bg-color) var(--bg-image) top center / cover; */
-  font-family: var(--main-font, Arial, sans-serif);
+  font-family: var(--main-font), 'Courier', monospace;
   font-size: 18px;
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
 }
